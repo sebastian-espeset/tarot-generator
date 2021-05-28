@@ -1,5 +1,7 @@
 
 import './App.css';
+import Card from './Card';
+import axios from 'axios';
 
 function App() {
   return (
@@ -8,6 +10,9 @@ function App() {
         <p>
           Tarot Generator starts here
         </p>
+        <div>
+          <Card/>
+        </div>
       </header>
     </div>
   );
