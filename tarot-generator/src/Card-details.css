@@ -1,0 +1,12 @@
+.Card-header{
+  font-size: larger;
+}
+.Meaning-holder{
+   display: flex;
+
+}
+.Card-meaning{
+   font-size: large;
+   display: flex;
+   align-items: center;
+}
