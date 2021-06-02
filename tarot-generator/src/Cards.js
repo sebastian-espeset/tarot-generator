@@ -29,12 +29,11 @@ const Cards = () => {
 
   const handleCardReveal = (e) => {
     const targetedCard = e.target.getAttribute("name");
-    console.log(targetedCard);
     setCardReveal({
       ...cardReveal,
       [e.target.getAttribute("name")]: !cardReveal[targetedCard],
     });
-    console.log(cardReveal);
+    console.log(targetedCard)
   };
 
   return (
@@ -44,7 +43,9 @@ const Cards = () => {
           <div
             onClick={handleCardReveal}
             name="card_one"
-            className = {cardReveal.card_one ? "title":"title has-background-danger"}
+            className={
+              cardReveal.card_one ? "title" : "title has-background-danger"
+            }
           >
             {cardData[0] ? cardData[0].name : "This is a cards title"}
           </div>
@@ -57,7 +58,9 @@ const Cards = () => {
         <div className="column">
           <div
             onClick={handleCardReveal}
-            className="title"
+            className={
+              cardReveal.card_two ? "title" : "title has-background-danger"
+            }
             name="card_two"
           >
             {cardData[1] ? cardData[1].name : "This is a cards title"}
@@ -66,20 +69,50 @@ const Cards = () => {
             {cardData[1] ? cardData[1].meaning_up : "this is a cards meaning"}
           </div>
         </div>
-        {/* <div className="column">
-          <div className="title">{cardData[2].name}</div>
-          <div className="content">{cardData[2].meaning_up}</div>
+        <div className="column">
+          <div
+            onClick={handleCardReveal}
+            className={
+              cardReveal.card_three ? "title" : "title has-background-danger"
+            }
+            name="card_three"
+          >
+            {cardData[2] ? cardData[2].name : "This is a cards title"}
+          </div>
+          <div className="content">
+            {cardData[2] ? cardData[2].meaning_up : "This is a cards meaning"}
+          </div>
         </div>
         <div className="column">
-          <div className="title">{cardData[3].name}</div>
-          <div className="content">{cardData[3].meaning_up}</div>
+          <div
+            onClick={handleCardReveal}
+            className={
+              cardReveal.card_four ? "title" : "title has-background-danger"
+            }
+            name="card_four"
+          >
+            {cardData[3] ? cardData[3].name : "This is a cards title"}
+          </div>
+          <div className="content">
+            {cardData[3] ? cardData[3].meaning_up : "This is a cards meaning"}
+          </div>
         </div>
       </div>
       <div className="columns">
         <div className="column is-offset-one-third">
-          <div className="title">{cardData[4].name}</div>
-          <div className="content">{cardData[4].meaning_up}</div>
-        </div> */}
+          <div
+            onClick={handleCardReveal}
+            className={
+              cardReveal.card_five ? "title" : "title has-background-danger"
+            }
+            name="card_five"
+          >
+            {cardData[4] ? cardData[4].name : "This is a cards title"}
+          </div>
+          <div className="content">
+            {cardData[4] ? cardData[4].meaning_up : "This is a cards meaning"}
+          </div>
+        </div>
       </div>
     </div>
   );
