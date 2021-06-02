@@ -28,35 +28,45 @@ const Cards = () => {
   }, []);
 
   const handleCardReveal = (e) => {
-    // const { name, value } = e.target;
-    console.log(e.target.className);
-    setCardReveal({ ...cardReveal, card_one: !cardReveal.card_one });
+    const targetedCard = e.target.getAttribute("name");
+    console.log(targetedCard);
+    setCardReveal({
+      ...cardReveal,
+      [e.target.getAttribute("name")]: !cardReveal[targetedCard],
+    });
+    console.log(cardReveal);
   };
 
   return (
     <div className="container">
       <div className="columns">
-        <div
-          className="column is-offset-one-third"
-          value="card_one"
-          id="card_one"
-          name="card_one"
-          onClick={handleCardReveal}
-        >
-          <div className="title" name='card_one' value="card_one">
+        <div className="column is-offset-one-third">
+          <div
+            onClick={handleCardReveal}
+            name="card_one"
+            className = {cardReveal.card_one ? "title":"title has-background-danger"}
+          >
             {cardData[0] ? cardData[0].name : "This is a cards title"}
           </div>
-          <div className="content" name='card_one'>
+          <div className="content">
             {cardData[0] ? cardData[0].meaning_up : "this is a cards meaning"}
           </div>
         </div>
       </div>
-      {/* <div className="columns">
+      <div className="columns">
         <div className="column">
-          <div className="title">{cardData[1].name}</div>
-          <div className="content">{cardData[1].meaning_up}</div>
+          <div
+            onClick={handleCardReveal}
+            className="title"
+            name="card_two"
+          >
+            {cardData[1] ? cardData[1].name : "This is a cards title"}
+          </div>
+          <div className="content">
+            {cardData[1] ? cardData[1].meaning_up : "this is a cards meaning"}
+          </div>
         </div>
-        <div className="column">
+        {/* <div className="column">
           <div className="title">{cardData[2].name}</div>
           <div className="content">{cardData[2].meaning_up}</div>
         </div>
@@ -69,8 +79,8 @@ const Cards = () => {
         <div className="column is-offset-one-third">
           <div className="title">{cardData[4].name}</div>
           <div className="content">{cardData[4].meaning_up}</div>
-        </div>
-      </div> */}
+        </div> */}
+      </div>
     </div>
   );
 };
