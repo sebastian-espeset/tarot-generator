@@ -1,0 +1,9 @@
+.is-bordered{
+   border:black solid 2px;
+   padding:2px;
+   border-radius: 1rem;
+}
+.is-cards-container{
+   padding: 10px;
+
+}
