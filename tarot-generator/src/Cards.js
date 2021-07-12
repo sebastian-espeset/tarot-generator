@@ -12,10 +12,18 @@ const useStyles = makeStyles((theme)=>({
     marginTop:'20%'
   },
   reDrawButton:{
-    marginLeft:'48%'
+    marginLeft:'45%',
+    marginTop:"10px"
   },
   cardsFull:{
-    height:'100%'
+    display:"block",
+    width:"15vw",
+    height:"15vw",
+    padding:"10px"
+  },
+  mainGrid:{
+    marginLeft:"6%",
+    padding:"30px"
   }
 })); 
 const Cards = () => {
@@ -56,9 +64,9 @@ const Cards = () => {
   if (cardReveal) {
     return (
       <>
-      <Button onClick={redrawCards} color="primary" className={classes.reDrawButton} variant="contained">Re-draw?</Button>
-        <Grid container spacing={3} padding="10px" alignItems="center">
-          <Grid item xs={2}>
+      <Button onClick={redrawCards} color="primary" className={classes.reDrawButton} variant="contained">Shuffle the deck and redraw?</Button>
+        <Grid container spacing={2} className={classes.mainGrid}>
+          <Grid item>
             <Card className={classes.cardsFull}>
               <CardContent>
                 <Typography variant="title">
@@ -70,11 +78,8 @@ const Cards = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item>
-            <Card></Card>
-          </Grid>
-          <Grid item xs={2}>
-            <Card>
+          <Grid item >
+            <Card className={classes.cardsFull}>
               <CardContent>
                 <Typography variant="title">
                   {cardData[1] ? cardData[1].name : "Loading"}
@@ -85,8 +90,8 @@ const Cards = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
-            <Card>
+          <Grid item>
+            <Card className={classes.cardsFull}>
               <CardContent>
                 <Typography variant="title">
                   {cardData[2] ? cardData[2].name : "Loading"}
@@ -97,8 +102,8 @@ const Cards = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
-            <Card>
+          <Grid item>
+            <Card className={classes.cardsFull}>
               <CardContent>
                 <Typography variant="title">
                   {cardData[3] ? cardData[3].name : "Loading"}
@@ -109,8 +114,8 @@ const Cards = () => {
               </Typography>
             </Card>
           </Grid>
-          <Grid item xs={2}>
-            <Card>
+          <Grid item>
+            <Card className={classes.cardsFull}>
               <CardContent>
                 <Typography variant="title">
                   {cardData[4] ? cardData[4].name : "Loading"}
@@ -128,7 +133,7 @@ const Cards = () => {
   return (
     <>
     <Button className={classes.drawButton} color="primary" onClick={cardRevealToggle} variant='contained'> 
-      draw Cards 
+      Draw your cards...
     </Button>
     </>
   );
