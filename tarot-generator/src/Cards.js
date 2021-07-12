@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Card, CardContent, Grid, Typography, Button } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 const tarotUrl = "https://rws-cards-api.herokuapp.com/api/v1/cards";
-const cardCount = 5;
+const cardCount=5;
 
+const useStyles = makeStyles((theme)=>({
+  drawButton:{
+    display:'flex',
+    marginLeft:'48%',
+    marginTop:'20%'
+  },
+  reDrawButton:{
+    marginLeft:'48%'
+  },
+  cardsFull:{
+    height:'100%'
+  }
+})); 
 const Cards = () => {
+  const classes=useStyles();
   let initialCardReveal = false;
 
   const [cardData, setCardsData] = useState([]);
@@ -41,10 +56,10 @@ const Cards = () => {
   if (cardReveal) {
     return (
       <>
-      <Button onClick={redrawCards}>Re-draw?</Button>
+      <Button onClick={redrawCards} color="primary" className={classes.reDrawButton} variant="contained">Re-draw?</Button>
         <Grid container spacing={3} padding="10px" alignItems="center">
           <Grid item xs={2}>
-            <Card>
+            <Card className={classes.cardsFull}>
               <CardContent>
                 <Typography variant="title">
                   {cardData[0] ? cardData[0].name : "Loading "}
@@ -112,7 +127,7 @@ const Cards = () => {
   }
   return (
     <>
-    <Button onClick={cardRevealToggle}> 
+    <Button className={classes.drawButton} color="primary" onClick={cardRevealToggle} variant='contained'> 
       draw Cards 
     </Button>
     </>
